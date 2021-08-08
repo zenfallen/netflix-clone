@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
+
+/* Variables */
+:root {
+  --red: #E50914;
+  --back: #141414; 
+  --dark-red: #ae0710;
+}
+/* Variables */
+
+/* Global Tags/Classes */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--back);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+/* Global Tags/Classes */
+
+/* Header */
+header {
+  padding: 15px 0px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  font-weight: normal;
+  font-family: 'Bebas Neue', cursive;
+  color: var(--red);
+  font-size: 40px;
+}
+
+header nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.active {
+  color: #fff;
+}
+
+header .btn {
+  color: var(--red);
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+header .btn:hover {
+  color: var(--dark-red);
+}
+/* Header */
+
+
+/* Main */
+.main-movie {
+  font-size: 16px;
+  min-height: 40.62em;
+  color: #fff;
+  background-image: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0, 0, 0, .50) 100%), url(../img/background.jpg);
+  background-position: center center;
+  background-size: cover;
+  margin-bottom: 3.12em;
+  display: flex;
+  align-items: flex-end;
+}
+
+.main-movie .container {
+  margin: 0 auto;
+  margin-bottom: 6.25em;
+}
+
+.main-movie .title {
+  font-weight: 600;
+  font-size: 3.12em;
+  margin-bottom: 0.4em;
+}
+
+.main-movie .description {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1.75em;
+  max-width: 50%;
+  margin-bottom: 1.25em;
+}
+
+.main-movie .button {
+  background-color: rgba(0, 0, 0, .50);
+  border: none;
+  border-radius: 0.31em;
+  padding: 0.93em 1.87em;
+  color: #fff;
+  margin-right: 1.25em;
+  margin-bottom: 1.25em;
+  cursor: pointer;
+  transition: .3s ease all;
+  font-size: 1.12em;
+}
+
+.main-movie .button:hover {
+  background-color: #fff;
+  color: #000;
+}
+/* Main */
+
+/* Title Container & Controls */
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.title-container h3 {
+  color: #fff;
+  font-size: 30px;
+}
+
+.title-container .indicators button {
+  background-color: #fff;
+  width: 10px;
+  height: 3px;
+  cursor: pointer;
+  border: none;
+  margin-right: 2px;
+}
+
+.title-container .indicators button:hover,
+.title-container .indicators button.active {
+ background-color: red;
+}
+/* Title Container & Controls */
+
+/* Main Container */
+.recommended-movies {
+  margin-bottom: 70px;
+}
+
+.recommended-movies .main-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.recommended-movies .main-container #prev-arrow,
+.recommended-movies .main-container #next-arrow {
+  position: absolute;
+  border: none;
+  background-color: rgba(0, 0, 0, .3);
+  font-size: 40px;
+  height: 50%;
+  top: calc(50% - 25%);
+  line-height: 40px;
+  width: 50px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 500;
+  transition: .2s ease all;
+}
+
+.recommended-movies .main-container #prev-arrow:hover,
+.recommended-movies .main-container #next-arrow:hover {
+  background-color: rgba(0, 0, 0, .6);
+}
+
+.recommended-movies .main-container #prev-arrow {
+  left: 0;
+}
+
+.recommended-movies .main-container #next-arrow {
+  right: 0;
+}
+/* Main Container */
+
+/* Carousel */
+.recommended-movies .carousel-container {
+  width: 100%;
+  padding: 20px 0px; 
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.recommended-movies .carousel-container .carousel {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.recommended-movies .carousel-container .carousel .movie {
+  min-width: 20%;
+  transition: .3s ease all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+}
+
+.recommended-movies .carousel-container .carousel .movie.hover {
+  transform: scale(1.2);
+  transform-origin: center;
+}
+
+.recommended-movies .carousel-container .carousel .movie img {
+  width: 100%;
+  vertical-align: top;
+}
+/* Carousel */
+
+/* Media-Querys */
+@media screen and (max-width: 800px) {
+  header .logo {
+    margin-bottom: 10px;
+  }
+
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-movie {
+    font-size: 14px;
+  }
+
+  .main-movie .description {
+    max-width: 100%;
+  }
+
+  .recommended-movies .carousel-container {
+    overflow: visible;
+  }
+
+  .recommended-movies .carousel-container .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .recommended-movies .indicators,
+  .recommended-movies #prev-arrow,
+  .recommended-movies #next-arrow {
+    display: none;
+  }
+}
+/* Media-Querys */
